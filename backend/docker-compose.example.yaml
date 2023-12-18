@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  database:
+    image: postgresql
+    container_name: database
+    hostname: database
+    restart: always
+    ports:
+      - '5002:3306'
+    environment:
+      - POSTGRESS_PASSWORD=value
+      - POSTGRES_USER=value
