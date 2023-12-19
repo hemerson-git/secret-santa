@@ -4,6 +4,7 @@ import cors from "cors";
 import http from "http";
 import https from "https";
 import publicRoutes from "./routes/public";
+import adminRoutes from "./routes/admin";
 import { requestInterceptor } from "./utils/requestInterceptor";
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.all("*", requestInterceptor);
 
+app.use("/admin", adminRoutes);
 app.use("/", publicRoutes);
 
 const runServer = (port: number, server: http.Server) => {
